@@ -1,0 +1,44 @@
+[
+    {
+        "service_id": "04",
+        "title": "WEDDING PHOTOGRAPHY",
+        "img": "https://cdn0.weddingwire.in/article/9086/3_2/960/jpg/16809-creative-wedding-photography-avinash-dhoundhiyal-photography-lead-image.jpeg",
+        "price": "200.00",
+        "description": "Marriage is one of the significant events in a person's life. I have worked at many weddings and know how to capture and preserve the happy moments of this event."
+    },
+    {
+        "service_id": "05",
+        "title": "PERSONAL PHOTOGRAPHY",
+        "img": "https://cdnpt01.viewbug.com/media/mediafiles/2018/02/19/77566641_large.jpg",
+        "price": "240.00",
+        "description": "This service is for models who need a quality, professional portfolio. Photography can take place both in the photo studio and outdoor, depending on the need."
+    },
+    {
+        "service_id": "01",
+        "title": "FAMILY PHOTOGRAPHY",
+        "img": "https://i.ytimg.com/vi/e1V8tPxanW8/maxresdefault.jpg",
+        "price": "200.00",
+        "description": "The high pace of life prevents us from devoting time to our family. But you do want to be with your family. I will help you 'suspend' time for these moments.!"
+    },
+    {
+        "service_id": "02",
+        "title": "EVENT PHOTOGRAPHY",
+        "img": "https://www.jennabechtholt.com/content/uploads/2017/08/26-13292-post/The-Admirals-House-Wedding-Seattle61.jpg",
+        "price": "150.00",
+        "description": "Whether personal events or events of the general public, require a special approach to fixing them in our lives. My professionalism will help you do it in the best way."
+    },
+    {
+        "service_id": "03",
+        "title": "PARTY PHOTOGRAPHY",
+        "img": "https://i1.adis.ws/i/canon/canon-pro-candid-wedding-photography-1-1140?w=1140&qlt=70&fmt=jpg&fmt.options=interlaced&bg=rgb(255,255,255)",
+        "price": "300.00",
+        "description": "Parties on various occasions are a great opportunity to be with our family and friends. Then remembering and sharing these memories of a good time with a photo will not hurt."
+    },
+    {
+        "service_id": "06",
+        "title": "COMMERCIAL PHOTOGRAPHY",
+        "img": "https://images.squarespace-cdn.com/content/v1/5c567e1294d71ad85d7c6b1e/1662663678679-GTCV7VRCBQ4W2YNJ442C/STUDIO+V+by+Scott+Vo+Photography++%7C+Commercial+Photographer+%7C+High+End+Portraits+Photographer+in+Oklahoma+%7C+Fashion+Photography+%7C+Fine+Jewelry+Product+Photographer+in+Oklahoma-3895.jpg",
+        "price": "200.00",
+        "description": "Targeted advertising campaign for your products or services, this is not the time to save. And without quality photos, too, can not do. Let me show your customers the best."
+    }
+]
