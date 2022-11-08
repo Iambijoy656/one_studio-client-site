@@ -180,7 +180,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* <a className="btn btn-error">Get started</a> */}
+                <button className="btn btn-outline btn-error hidden md:block">Contact Me</button>
             </div>
         </div>
     );
