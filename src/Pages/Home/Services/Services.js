@@ -32,8 +32,10 @@ const Services = () => {
                 }
             </div>
 
-            <div className='text-center my-5'>
-                <button className="btn bg-purple-900">Show all Services</button>
+            <div className='text-center my-5 mt-14'>
+                <Link to='/services'>
+                    <button className="btn bg-blue-900">Show all Services</button>
+                </Link>
             </div>
         </div>
     );

@@ -1,15 +1,163 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png';
+import { AuthContext } from '../../Context/AuthProvider';
+import ReactTooltip from 'react-tooltip';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+
+
+
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
     const menuItems = <>
-        <li className='mr-3'><Link to='/'>Home</Link></li>
-        <li className='mr-3'><Link to='/'>Service</Link></li>
-        <li className='mr-3'><Link to='/'>Our Gallery</Link></li>
-        <li className='mr-3'><Link to='/'>Blog</Link></li>
-        <li className='mr-3'><Link to='/'>Sign In</Link></li>
-        <li className='mr-3'><Link to='/'>Sign Out</Link></li>
+        <li>
+            <NavLink
+                to="/"
+                style={({ isActive }) => ({
+                    color: isActive ? 'greenyellow' : 'white'
+                })}
+                className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+            >
+                Home
+            </NavLink>
+        </li>
+
+        <li>
+            <NavLink
+                to="/services"
+                style={({ isActive }) => ({
+                    color: isActive ? 'greenyellow' : 'white'
+                })}
+                className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+            >
+                Services
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+                to="/gallery"
+                style={({ isActive }) => ({
+                    color: isActive ? 'greenyellow' : 'white'
+                })}
+                className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+            >
+                Gallery
+            </NavLink>
+        </li>
+        <li>
+            <NavLink
+                to="/blog"
+                style={({ isActive }) => ({
+                    color: isActive ? 'greenyellow' : 'white'
+                })}
+                className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+            >
+                Blog
+            </NavLink>
+        </li>
+
+
+        {
+            user?.email ?
+                <>
+                    <li>
+                        <NavLink
+                            to="/review"
+                            style={({ isActive }) => ({
+                                color: isActive ? 'greenyellow' : 'white'
+                            })}
+                            className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+                        >
+                            My Review
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/addservice"
+                            style={({ isActive }) => ({
+                                color: isActive ? 'greenyellow' : 'white'
+                            })}
+                            className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+                        >
+                            Add Service
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink
+                            onClick={handleLogOut}
+                            to="/"
+
+                            className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+                        >
+                            Sign Out
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <Link to="/profile">
+                            <img
+                                className="w-10 rounded-full"
+                                data-tip={user.displayName}
+                                src={user?.photoURL}
+                                alt=""
+                            />
+                        </Link>
+                        <ReactTooltip />
+                    </li>
+
+                </>
+                :
+                <>
+
+                    <li>
+                        <NavLink
+                            to="/login"
+                            style={({ isActive }) => ({
+                                color: isActive ? 'greenyellow' : 'white'
+                            })}
+                            className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+                        >
+                            SingIn
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            to="/signup"
+                            style={({ isActive }) => ({
+                                color: isActive ? 'greenyellow' : 'white'
+                            })}
+                            className="font-medium tracking-wide transition-colors duration-200 bg-purple-900"
+
+                        >
+                            Signup
+                        </NavLink>
+                    </li>
+                </>
+        }
+
+
+
+
     </>
     return (
         <div className="navbar bg-purple-900 ">
