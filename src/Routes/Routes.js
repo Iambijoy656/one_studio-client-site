@@ -8,6 +8,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Blog from "../Pages/Blog/Blog";
 import Gallery from "../Pages/Gallery/Gallery";
 import PrivateRoute from "./PrivateRoute.js/PrivateRoute";
+import Details from "../Pages/Details/Details";
 
 const router = createBrowserRouter([
     {
@@ -17,12 +18,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('services.json')
+                loader: () => fetch('http://localhost:5000/limitservices')
             },
             {
                 path: '/services',
                 element: <ServicePage></ServicePage>,
-                loader: () => fetch('services.json')
+                loader: () => fetch('http://localhost:5000/services')
             },
             {
                 path: '/login',
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
 
             },
+            {
+                path: 'details/:id',
+                element: <Details></Details>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            }
         ]
     }
 ])
