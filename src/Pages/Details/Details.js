@@ -5,7 +5,7 @@ import ReviewForm from '../ReviewForm/ReviewForm';
 
 const Details = () => {
     const serviceDetails = useLoaderData();
-    const { title, img, price, description } = serviceDetails
+    const { _id, title, img, price, description } = serviceDetails
 
     return (
 
@@ -23,8 +23,12 @@ const Details = () => {
                 </div>
                 <img src={img} alt="" className="w-3/5 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gray-500" />
             </section>
-            <section className='my-10'>
-                <ReviewForm></ReviewForm>
+            <section className='my-10 text-center'>
+                <Link to='/reviewform'>
+                    <button class="px-5 py-3 text-white transition-colors duration-300 transform bg-blue-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Add Your
+                        Review
+                    </button>
+                </Link>
             </section>
         </div>
 

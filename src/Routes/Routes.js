@@ -9,6 +9,7 @@ import Blog from "../Pages/Blog/Blog";
 import Gallery from "../Pages/Gallery/Gallery";
 import PrivateRoute from "./PrivateRoute.js/PrivateRoute";
 import Details from "../Pages/Details/Details";
+import ReviewForm from "../Pages/ReviewForm/ReviewForm";
 
 const router = createBrowserRouter([
     {
@@ -47,14 +48,20 @@ const router = createBrowserRouter([
             },
             {
                 path: '/gallery',
-                element: <PrivateRoute><Gallery></Gallery></PrivateRoute>,
+                element: <Gallery></Gallery>,
 
             },
             {
                 path: 'details/:id',
                 element: <Details></Details>,
                 loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
-            }
+            },
+            {
+                path: '/reviewform',
+                element: <PrivateRoute><ReviewForm></ReviewForm></PrivateRoute>,
+
+
+            },
         ]
     }
 ])
