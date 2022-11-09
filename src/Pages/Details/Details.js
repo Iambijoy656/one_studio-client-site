@@ -1,12 +1,30 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaUserCircle, FaStar, } from "react-icons/fa";
 import ReviewForm from '../ReviewForm/ReviewForm';
+import { AuthContext } from '../../Context/AuthProvider';
+import ReviewCart from '../MyReview/ReviewCart';
 
 const Details = () => {
     const serviceDetails = useLoaderData();
-
     const { _id, title, img, price, description } = serviceDetails
+
+
+    const { user, loading } = useContext(AuthContext);
+    const [allReviews, setAllReview] = useState({})
+
+
+
+    useEffect(() => {
+        fetch('http://localhost:5000/allreviews')
+            .then(res => res.json())
+            .then(data => setAllReview(data))
+
+    }, [])
+
+
+
+
 
     return (
 
@@ -26,11 +44,27 @@ const Details = () => {
             </section>
             <section className='my-10 text-center'>
                 <Link to={`/reviewform/${_id}`}>
-                    <button class="px-5 py-3 text-white transition-colors duration-300 transform bg-blue-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Add Your
+                    <button class="px-5 py-3 font-semibold text-white transition-colors duration-300 transform bg-blue-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Add Your
                         Review
                     </button>
                 </Link>
             </section>
+
+
+            <div className='my-5'>
+                <h2 className='text-5xl text-center font-semibold my-5'>Total Reviews :{allReviews.length} </h2>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+                    {
+                        allReviews.map(review => <ReviewCart
+                            key={review._id}
+                            review={review}
+                        >
+
+                        </ReviewCart>)
+                    }
+                </div>
+
+            </div>
         </div>
 
     );
