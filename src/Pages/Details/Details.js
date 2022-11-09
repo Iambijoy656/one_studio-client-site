@@ -5,7 +5,7 @@ import ReviewForm from '../ReviewForm/ReviewForm';
 
 const Details = () => {
     const serviceDetails = useLoaderData();
-    console.log(serviceDetails)
+
     const { _id, title, img, price, description } = serviceDetails
 
     return (
