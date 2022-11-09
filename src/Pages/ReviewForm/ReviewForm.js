@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthProvider';
 
 const ReviewForm = () => {
     const { user } = useContext(AuthContext)
+    const review = useLoaderData();
+    const { _id, title, price } = review;
 
 
 
@@ -10,8 +14,31 @@ const ReviewForm = () => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
+        const rating = form.rating.value;
         const email = user?.email || 'Unregistered';
         const message = form.message.value;
+
+        const review = {
+
+            reviewId: _id,
+            ServiceName: title,
+            price,
+            clientName: name,
+            email,
+            message,
+            rating
+        }
+
+        if (rating !== 'number' || rating > 5) {
+            toast.warning('Please Give a valid rate')
+        }
+        else {
+
+
+        }
+
+
+
     }
 
 
@@ -44,7 +71,7 @@ const ReviewForm = () => {
                     <div class="w-full mx-2 mt-4 md:mt-0">
                         <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Give Star</label>
 
-                        <input name='rating' class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="text" placeholder='3 or 4 or 5' />
+                        <input name='rating' class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" type="text" placeholder='3 or 4 or 5' required />
                     </div>
 
                 </div>
@@ -52,7 +79,7 @@ const ReviewForm = () => {
                 <div class="w-full mt-4">
                     <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Message</label>
 
-                    <textarea name='message' class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"></textarea>
+                    <textarea name='message' class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40" required></textarea>
                 </div>
 
                 <div class="flex justify-center mt-6">

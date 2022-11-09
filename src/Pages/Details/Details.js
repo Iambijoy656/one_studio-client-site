@@ -24,7 +24,7 @@ const Details = () => {
                 <img src={img} alt="" className="w-3/5 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-40 bg-gray-500" />
             </section>
             <section className='my-10 text-center'>
-                <Link to='/reviewform'>
+                <Link to={`/reviewform/${_id}`}>
                     <button class="px-5 py-3 text-white transition-colors duration-300 transform bg-blue-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Add Your
                         Review
                     </button>
