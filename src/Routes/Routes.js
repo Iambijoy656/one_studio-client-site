@@ -10,6 +10,7 @@ import Gallery from "../Pages/Gallery/Gallery";
 import PrivateRoute from "./PrivateRoute.js/PrivateRoute";
 import Details from "../Pages/Details/Details";
 import ReviewForm from "../Pages/ReviewForm/ReviewForm";
+import MyReview from "../Pages/MyReview/MyReview";
 
 const router = createBrowserRouter([
     {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
 
 
             },
+            {
+                path: '/review',
+                element: <MyReview></MyReview>
+            }
         ]
     }
 ])
