@@ -20,8 +20,8 @@ const ReviewForm = () => {
 
         const review = {
 
-            reviewId: _id,
-            ServiceName: title,
+            serviceId: _id,
+            serviceName: title,
             price,
             clientName: name,
             email,
@@ -29,13 +29,27 @@ const ReviewForm = () => {
             rating
         }
 
-        if (rating !== 'number' || rating > 5) {
-            toast.warning('Please Give a valid rate')
-        }
-        else {
 
 
-        }
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    toast.success('Review Send Successfully')
+                    form.reset()
+
+                }
+            })
+            .catch(error => console.error(error))
+
+
 
 
 
