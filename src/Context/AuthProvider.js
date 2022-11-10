@@ -28,11 +28,7 @@ const AuthProvider = ({ children }) => {
 
 
 
-    // useEffect(() => {
-    //     fetch("https://dev-learn-server-side.vercel.app/courses")
-    //         .then((res) => res.json())
-    //         .then((data) => setCourses(data));
-    // }, []);
+
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -73,7 +69,7 @@ const AuthProvider = ({ children }) => {
     }, [user]);
 
     const authInfo = {
-        // courses,
+
         createUser,
         user,
         updateUserProfile,

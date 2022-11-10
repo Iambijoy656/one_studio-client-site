@@ -7,13 +7,7 @@ const Services = () => {
 
     const fetureService = services.slice(0, 3);
 
-    // const [services, setServices] = useState([])
 
-    // useEffect(() => {
-    //     fetch('services.json')
-    //         .then(res => res.json())
-    //         .then(data => setServices(data))
-    // }, [])
 
 
     return (

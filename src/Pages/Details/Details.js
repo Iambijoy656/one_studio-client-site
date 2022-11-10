@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaUserCircle, FaStar, } from "react-icons/fa";
 import ReviewForm from '../ReviewForm/ReviewForm';
 import { AuthContext } from '../../Context/AuthProvider';
 import ReviewCart from '../MyReview/ReviewCart';
