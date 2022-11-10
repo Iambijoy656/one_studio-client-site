@@ -27,8 +27,37 @@ const Login = () => {
                 const user = result.user;
                 form.reset();
                 setError("");
-                navigate(from, { replace: true });
+
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser)
+
+                // get jwt token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+
+
+
+                        localStorage.setItem("oneStudio-token", data.token)
+
+                        navigate(from, { replace: true })
+
+                    })
+
+
+
+
             })
+
             .catch((error) => {
                 const errorMessage = error.message.slice(22, error.message.length - 2);
                 setError(errorMessage);
