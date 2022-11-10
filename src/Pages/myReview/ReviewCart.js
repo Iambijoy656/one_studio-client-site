@@ -1,28 +1,11 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
-const ReviewCart = ({ review }) => {
+const ReviewCart = ({ review, handleDelete }) => {
     const { user } = useContext(AuthContext)
     const { _id, serviceName, clientName, message, rating } = review;
 
 
-    const handleDelete = id => {
-        const proceed = window.confirm("Are you sure, you want to delete it? ")
-
-        if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
-                method: 'DELETE'
-
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
-        }
-
-
-
-    }
 
 
     return (

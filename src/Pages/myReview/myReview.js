@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { AuthContext } from '../../Context/AuthProvider';
 import ReviewCart from './ReviewCart';
@@ -6,6 +7,29 @@ import ReviewCart from './ReviewCart';
 const MyReview = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReview] = useState([])
+
+    const handleDelete = id => {
+        const proceed = window.confirm("Are you sure, you want to delete it? ")
+
+        if (proceed) {
+            fetch(`http://localhost:5000/reviews/${id}`, {
+                method: 'DELETE'
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.deletedCount > 0) {
+                        toast.error('Deleted Successfully')
+                        const remaining = reviews.filter(rvw => rvw._id !== id)
+                        setReview(remaining)
+                    }
+                })
+        }
+
+
+
+    }
 
 
 
@@ -24,6 +48,7 @@ const MyReview = () => {
                     reviews.map(review => <ReviewCart
                         key={review._id}
                         review={review}
+                        handleDelete={handleDelete}
                     >
 
                     </ReviewCart>)
