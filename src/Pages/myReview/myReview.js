@@ -34,18 +34,30 @@ const MyReview = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('oneStudio-token')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+
+                    return setReview([])
+                    // return logOut();
+                }
+
+                return res.json()
+            })
             .then(data => setReview(data))
 
     }, [user?.email])
 
     return (
         <div>
-            <h2 className='text-5xl text-center font-semibold my-5'>Your {reviews.length} Reviews </h2>
+            <h2 className='text-5xl text-center font-semibold my-5'>Your {reviews?.length} Reviews </h2>
             <div >
                 {
-                    reviews.map(review => <ReviewCart
+                    reviews?.map(review => <ReviewCart
                         key={review._id}
                         review={review}
                         handleDelete={handleDelete}
