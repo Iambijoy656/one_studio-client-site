@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute.js/PrivateRoute";
 import Details from "../Pages/Details/Details";
 import ReviewForm from "../Pages/ReviewForm/ReviewForm";
 import MyReview from "../Pages/MyReview/MyReview";
+import AddService from "../Pages/AddService/AddService";
 
 const router = createBrowserRouter([
     {
@@ -20,12 +21,12 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/limitservices')
+                loader: () => fetch('https://one-studio-server.vercel.app/limitservices')
             },
             {
                 path: '/services',
                 element: <ServicePage></ServicePage>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://one-studio-server.vercel.app/services')
             },
             {
                 path: '/login',
@@ -55,18 +56,22 @@ const router = createBrowserRouter([
             {
                 path: 'details/:id',
                 element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://one-studio-server.vercel.app/services/${params.id}`)
             },
             {
                 path: 'reviewform/:id',
                 element: <PrivateRoute><ReviewForm></ReviewForm></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://one-studio-server.vercel.app/services/${params.id}`)
 
 
             },
             {
                 path: '/review',
                 element: <MyReview></MyReview>
+            },
+            {
+                path: '//addservice',
+                element: <AddService></AddService>
             }
         ]
     }

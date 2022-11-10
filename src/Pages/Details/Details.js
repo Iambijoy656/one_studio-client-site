@@ -17,7 +17,7 @@ const Details = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/allreviews')
+        fetch('https://one-studio-server.vercel.app/allreviews')
             .then(res => res.json())
             .then(data => setAllReview(data))
 

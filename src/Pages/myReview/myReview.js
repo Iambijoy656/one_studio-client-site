@@ -12,7 +12,7 @@ const MyReview = () => {
         const proceed = window.confirm("Are you sure, you want to delete it? ")
 
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`https://one-studio-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
 
             })
@@ -34,7 +34,7 @@ const MyReview = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`, {
+        fetch(`https://one-studio-server.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('oneStudio-token')}`
             }
