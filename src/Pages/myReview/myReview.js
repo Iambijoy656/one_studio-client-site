@@ -4,8 +4,8 @@ import { AuthContext } from '../../Context/AuthProvider';
 import ReviewCart from './ReviewCart';
 
 const MyReview = () => {
-    const { user, loading } = useContext(AuthContext);
-    const [reviews, setReview] = useState({})
+    const { user } = useContext(AuthContext);
+    const [reviews, setReview] = useState([])
 
 
 

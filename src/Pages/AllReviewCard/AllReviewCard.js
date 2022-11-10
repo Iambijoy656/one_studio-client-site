@@ -1,30 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider';
 
-const ReviewCart = ({ review }) => {
+const AllReviewCard = ({ review }) => {
+
     const { user } = useContext(AuthContext)
-    const { _id, serviceName, clientName, message, rating } = review;
-
-
-    const handleDelete = id => {
-        const proceed = window.confirm("Are you sure, you want to delete it? ")
-
-        if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
-                method: 'DELETE'
-
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
-        }
-
-
-
-    }
-
-
+    const { serviceName, clientName, message, rating } = review
     return (
         <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 bg-gray-200 text-gray-900 my-5">
             <div className="flex justify-between p-4">
@@ -49,14 +29,9 @@ const ReviewCart = ({ review }) => {
                 <p>{message}</p>
             </div>
 
-            <div className='flex justify-between items-center'>
-                <button class="px-5 py-3 my-5 font-semibold text-white transition-colors duration-300 transform bg-sky-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Edit
-                </button>
-                <button onClick={() => handleDelete(_id)} class="px-5 py-3 font-semibold text-white transition-colors duration-300 transform bg-sky-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Delete
-                </button>
-            </div>
+
         </div>
     );
 };
 
-export default ReviewCart;
+export default AllReviewCard;
