@@ -17,7 +17,7 @@ const AddService = () => {
 
             title,
             price,
-            imageURL,
+            img: imageURL,
             description
         }
 
