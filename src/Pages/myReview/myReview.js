@@ -43,7 +43,7 @@ const MyReview = () => {
                 if (res.status === 401 || res.status === 403) {
 
                     return setReview([])
-                    // return logOut();
+
                 }
 
                 return res.json()

@@ -10,7 +10,7 @@ const AllReviewCard = ({ review }) => {
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
-                        <img src={user?.photoURL} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+                        <img src={user ? user.photoURL : 'https://cdn1.vectorstock.com/i/1000x1000/31/95/user-sign-icon-person-symbol-human-avatar-vector-12693195.jpg'} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                     </div>
                     <div>
                         <h4 className="font-bold">{clientName}</h4>
